@@ -1,0 +1,23 @@
+import UIKit
+import WebKit
+class ViewControllear: UIViewController, WKUIDelegate {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        let myWebView:WKWebView = WKWebView(frame: CGRect(x:0, y:0, width: UIScreen.main.bounds.width, height:UIScreen.main.bounds.height))
+        myWebView.uiDelegate = self
+        self.view.addSubview(myWebView)
+        
+        
+        let htmlString:String = "<b>Bold string</b>"
+        myWebView.loadHTMLString(htmlString, baseURL: nil)
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+}
